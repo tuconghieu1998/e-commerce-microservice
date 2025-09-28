@@ -1,6 +1,6 @@
 "use client";
 
-import { CartItemsType } from "@/types";
+import { CartItemsType, ShippingFormInputs } from "@/types";
 import { ArrowRight, Trash2 } from "lucide-react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Image from "next/image";
@@ -85,7 +85,7 @@ const CartPage = () => {
     const activeStep = parseInt(searchParams.get("step") || "1");
     const router = useRouter();
 
-    const [shippingForm, setShippingForm] = useState(null);
+    const [shippingForm, setShippingForm] = useState<ShippingFormInputs>();
     return (
         <div className="flex flex-col gap-8 items-center justify-center mt-12">
             {/* TITLE */}
@@ -161,7 +161,7 @@ const CartPage = () => {
                             </div>
                         ))
                     ) : activeStep === 2 ? (
-                        <ShippingForm></ShippingForm>
+                        <ShippingForm setShippingForm={setShippingForm}></ShippingForm>
                     ) : activeStep === 3 && shippingForm ? (
                         <PaymentForm></PaymentForm>
                     ) : (
