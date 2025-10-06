@@ -2,8 +2,12 @@ import Fastify, { FastifyInstance } from "fastify";
 
 const fastify: FastifyInstance = Fastify({})
 
-fastify.get("/", (request, reply) => {
-  return reply.send("Order endpoints works");
+fastify.get("/health", (request, reply) => {
+  return reply.status(200).send({
+        status: "ok",
+        uptime: process.uptime(),
+        timestamp: Date.now()
+    });
 })
 
 const start = async () => {
