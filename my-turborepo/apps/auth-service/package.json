@@ -14,8 +14,7 @@
   "dependencies": {
     "@clerk/express": "^1.7.30",
     "cors": "^2.8.5",
-    "express": "^5.0.3",
-    "@repo/kafka": "workspace:*"
+    "express": "^5.0.3"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
